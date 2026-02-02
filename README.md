@@ -1,61 +1,96 @@
-# 🚀 Getting started with Strapi
+# Strapi Local Setup – Task 1
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Overview
+This task involves setting up Strapi locally, starting the Admin Panel, exploring the project structure and creating a sample content type. The goal is to understand how Strapi works from a developer and platform perspective.
 
-### `develop`
+## Prerequisites
+- Node.js (v18 or v20 recommended)
+- npm
+- Yarn
+- Git
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
 
-```
-npm run develop
-# or
-yarn develop
-```
 
-### `start`
+## Repository Details
+- Strapi Core Repository: https://github.com/strapi/strapi  
+- Strapi Application: Created using the official Strapi CLI
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+> Note: The `strapi/strapi` repository contains the core Strapi framework and is not a directly runnable application.  
+> To run Strapi locally, a Strapi application must be generated using the Strapi CLI.
 
-```
-npm run start
-# or
-yarn start
-```
+## Setup Steps
 
-### `build`
+### 1. Clone the Strapi Core Repository
+````bash
+git clone https://github.com/strapi/strapi.git
+cd strapi
+````
+### 2. Prerequisite Verification
+````bash
+node -v
+npm -v
+git -v
+````
+All required tools were available and properly configured.
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+### 3. Install Dependencies
 
-```
-npm run build
-# or
-yarn build
-```
+The Strapi repository uses Yarn workspaces.
+Attempting to install dependencies using npm resulted in conflicts, so Yarn was used instead.
+````bash
+npm install -g yarn
+yarn install
+````
 
-## ⚙️ Deployment
+### 4. Create and Run a Strapi Application
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+A runnable Strapi application was created using the official Strapi CLI.
 
-```
-yarn strapi deploy
-```
+````bash
+npx create-strapi-app@latest my-strapi-app --quickstart
 
-## 📚 Learn more
+````
+During setup:
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+- Login and cloud features were skipped.
+- Anonymous telemetry was declined.
+- SQLite database was configured automatically.
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+The Admin Panel started successfully after setup.
 
-## ✨ Community
+Admin Panel URL:
+http://localhost:1337/admin
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+### 5. Admin Panel Setup
 
----
+- Created an Admin user
+- Logged in successfully
+- Verified that Strapi was running locally
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+### 6. Create a Sample Content Type
+
+Using the Admin Panel:
+- Created a collection type named Article
+- Added the following fields:
+    Title(Text)
+    Description (Rich Text)
+- Added a sample entry using Content Manager.
+
+### Outcome
+- Strapi Application running successfully on local machine
+- Admin Panel Operational
+- Sample content type created and tested
+- Clear understanding of Strapi framework vs application structure
+- Setup steps documented clearly
+
+### Understanding of the Stripe Application 
+
+Before this task, I did not have much knowledge about how Stripe works internally.
+
+After going through the stripe repository, I understood that it is used by Go applications to connect with Stripe and use features like payments and customer management. 
+
+Instead of writing API calls manually, this library provides ready-made functions to work with Stripe services.
+
+I also noticed that the code is properly organized and maintained which shows that it is meant to be used in real production applications. 
+
+This task helped me understand how developers use such libraries in real projects.
