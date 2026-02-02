@@ -109,3 +109,8 @@ Instead of writing API calls manually, this library provides ready-made function
 I also noticed that the code is properly organized and maintained which shows that it is meant to be used in real production applications. 
 
 This task helped me understand how developers use such libraries in real projects.
+
+## Demo Video
+Loom video demonstrating the Strapi setup and functionality is available here:
+https://www.loom.com/share/fcddc4f77c3f424ebd8f2dd5e9f16a6d
+
