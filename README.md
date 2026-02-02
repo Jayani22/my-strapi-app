@@ -3,13 +3,15 @@
 ## Overview
 This task involves setting up Strapi locally, starting the Admin Panel, exploring the project structure and creating a sample content type. The goal is to understand how Strapi works from a developer and platform perspective.
 
+---
+
 ## Prerequisites
 - Node.js (v18 or v20 recommended)
 - npm
 - Yarn
 - Git
 
-
+---
 
 ## Repository Details
 - Strapi Core Repository: https://github.com/strapi/strapi  
@@ -83,9 +85,22 @@ Using the Admin Panel:
 - Clear understanding of Strapi framework vs application structure
 - Setup steps documented clearly
 
+## Project Structure Overview
+
+After running the Strapi application, I explored the project structure to understand how it is organized.
+
+- `src/`: Contains the main application code, including APIs and content types.
+- `config/`: Used for application and environment configuration.
+- `database/`: Contains local database-related files.
+- `public/`: Stores public assets.
+- `node_modules/`: Contains installed dependencies.
+- `types/`: Contains TypeScript type definitions.
+
+This helped me understand where the main logic, configuration, and content-related code are placed in a Strapi application.
+
 ### Understanding of the Stripe Application 
 
-Before this task, I did not have much knowledge about how Stripe works internally.
+Before this task, I do not have much knowledge about how Stripe works internally.
 
 After going through the stripe repository, I understood that it is used by Go applications to connect with Stripe and use features like payments and customer management. 
 
@@ -94,3 +109,8 @@ Instead of writing API calls manually, this library provides ready-made function
 I also noticed that the code is properly organized and maintained which shows that it is meant to be used in real production applications. 
 
 This task helped me understand how developers use such libraries in real projects.
+
+## Demo Video
+Loom video demonstrating the Strapi setup and functionality is available here:
+https://www.loom.com/share/fcddc4f77c3f424ebd8f2dd5e9f16a6d
+
