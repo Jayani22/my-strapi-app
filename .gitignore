@@ -35,7 +35,7 @@ terraform/.terraform.lock.hcl
 # ---------------------------
 # AWS / SSH Keys (IMPORTANT)
 # ---------------------------
-*.pem
+strapi-key-jayani.pem
 *.key
 keys/
 
