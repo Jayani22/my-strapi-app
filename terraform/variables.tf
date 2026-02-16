@@ -4,9 +4,11 @@ variable "image_tag" {
 
 variable "docker_username" {
     type = string
+    default = "jayani23"
 }
 
 variable "private_key_path" {
     type        = string
+    default     = "../strapi-key-jayani.pem"
     description = "Path to SSH private key"
 }
