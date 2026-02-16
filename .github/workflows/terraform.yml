@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       image_tag:
-        description: "Docker image tag from CI"
+        description: "Docker image tag"
         required: true
+        default: "latest"
 
 jobs:
   deploy:
@@ -22,24 +23,29 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Setup SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-
-      - name: Configure AWS credentials
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
+          aws-region: us-east-1
+
+      - name: Setup SSH Key
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY }}" > ../strapi-key-jayani.pem
+          chmod 400 ../strapi-key-jayani.pem
 
       - name: Terraform Init
         run: terraform init
-
       - name: Terraform Plan
-        run: terraform plan -var="image_tag=${{ github.event.inputs.image_tag }}"
-
+        run: |
+          terraform plan \
+            -var="docker_username=jayani23" \
+            -var="image_tag=${{ github.event.inputs.image_tag }}" \
+            -var = "private_key_path=../strapi-key-jayani.pem"
       - name: Terraform Apply
-        run: terraform apply -auto-approve -var="image_tag=${{ github.event.inputs.image_tag }}"
+        run: |
+          terraform apply -auto-approve \
+            -var="docker_username=jayani23" \
+            -var="image_tag=${{ github.event.inputs.image_tag }}" \
+            -var="private_key_path=../strapi-key-jayani.pem"
