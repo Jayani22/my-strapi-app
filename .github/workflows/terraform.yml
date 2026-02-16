@@ -42,7 +42,7 @@ jobs:
           terraform plan \
             -var="docker_username=jayani23" \
             -var="image_tag=${{ github.event.inputs.image_tag }}" \
-            -var = "private_key_path=../strapi-key-jayani.pem"
+            -var="private_key_path=../strapi-key-jayani.pem"
       - name: Terraform Apply
         run: |
           terraform apply -auto-approve \
