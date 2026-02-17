@@ -12,6 +12,7 @@ RUN npm install
 # Copy project files
 COPY . .
 
+# Less memory usage
 ENV NODE_ENV=production
 
 # Build Strapi admin panel
