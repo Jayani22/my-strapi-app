@@ -12,7 +12,7 @@ RUN npm install
 # Copy project files
 COPY . .
 
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 
 # Build Strapi admin panel
 RUN npm run build
@@ -21,4 +21,4 @@ RUN npm run build
 EXPOSE 1337
 
 # Start Strapi
-CMD ["npm", "run", "develop"]
+CMD ["npm", "run", "start"]
