@@ -25,8 +25,8 @@ resource "aws_security_group" "strapi_sg" {
 
 
 resource "aws_instance" "strapi" {
-    ami           = "ami-0c1fe732b5494dc14" # Ubuntu ap-south-1
-    instance_type = "t3.small"
+    ami           = "ami-0c1fe732b5494dc14" # Amazon Linux
+    instance_type = "t2.micro"
     key_name      = "strapi-key-jayani"
 
     vpc_security_group_ids = [aws_security_group.strapi_sg.id]
