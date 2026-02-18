@@ -3,7 +3,3 @@ build
 dist
 .cache
 .git
-.github
-.env
-Dockerfile
-terraform

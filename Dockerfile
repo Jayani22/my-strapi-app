@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20-alpine
 
 # Create app directory
 WORKDIR /app
@@ -11,9 +11,6 @@ RUN npm install
 
 # Copy project files
 COPY . .
-
-# Less memory usage
-ENV NODE_ENV=production
 
 # Build Strapi admin panel
 RUN npm run build
